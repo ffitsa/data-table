@@ -21,27 +21,20 @@ function App() {
 	])
 
 
-	const [name, setName] = useState('');
-	const [surname, setSurname] = useState('');
-	const [years, setYears] = useState('');
+	const [cardItem, setCardItem] = useState({
+		name: '', surname: '', years: ''
+	});
+
 
 	function addNewCard(event) {
 		event.preventDefault()
-			const newCard = {
-				id: Date.now(),
-				name, 
-				surname,
-				years
-			}
+		//!!! important to remember !!!
+		// Expanding the old array with objects and adding a new object
+		// Розкрив старий массив з об'єктами і добавив новий об'єкт (cards+cardItem)
+		setCards([...cards, { ...cardItem, id: Date.now() }])
+		// !!!
 
-
-			//!!! important to remember !!!
-		setCards([...cards, newCard])
-		// Expanding the old array with objects and adding a new one
-		// Розкрив старий массив з об'єктами і вкінець добавив новий
-		setName('')
-		setSurname('')
-		setYears('')
+		setCardItem({ name: '', surname: '', years: '' })
 	}
 
 
@@ -56,22 +49,22 @@ function App() {
 				<InputText
 					type='text'
 					placeholder='Name'
-					value={name}
-					onChange={(e) => setName(e.target.value)}
+					value={cardItem.name}
+					onChange={(e) => setCardItem({ ...cardItem, name: e.target.value })}
 				/>
 
 				<InputText
 					type='text'
 					placeholder='Surname'
-					value={surname}
-					onChange={(e) => setSurname(e.target.value)}
+					value={cardItem.surname}
+					onChange={(e) => setCardItem({ ...cardItem, surname: e.target.value })}
 				/>
 
 				<InputText
 					type='number'
 					placeholder='Years'
-					value={years}
-					onChange={(e) => setYears(e.target.value)}
+					value={cardItem.years}
+					onChange={(e) => setCardItem({ ...cardItem, years: e.target.value })}
 				/>
 				<div className="userinf__btn">
 					<Button onClick={addNewCard} label="ADD" icon="pi pi-plus" />
@@ -79,13 +72,15 @@ function App() {
 			</form>
 
 
-
-			
-			{cards.map(card =>
-				<UserCard card={card} key={card.id} />
+			{/* It is necessary to sort in the map method */}
+			{/* //Потрібно розібратись в методі map */}
+			{cards.map((card, index) =>
+				<UserCard number={index + 1} card={card} key={card.id} />
 			)}
 
-		</div>);
+		</div>
+
+	);
 }
 
 export default App;

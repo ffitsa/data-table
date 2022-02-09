@@ -10,7 +10,7 @@ const UserCard = (props) => {
 		<Card>
 			<div className="card__user">
 				<div className="card__userdinf-item">
-					<div className="card__name">id: {props.card.id}</div>
+					<div className="card__name">id: {props.number}</div>
 					<div className="card__name">Name: {props.card.name}</div>
 					<div className="card__name">Surname:  {props.card.surname}</div>
 					<div className="card__name">Years:  {props.card.years}</div>

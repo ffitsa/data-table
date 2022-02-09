@@ -1,0 +1,66 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+input[type="number"] {
+   -moz-appearance: textfield;
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+   -moz-appearance: number-input;
+}
+
+
+body{
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.App {
+   width: 600px;
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	height: 280px;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.userinf__btn{
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.userinfo__form{
+	margin-bottom: 10px;
+}
+
+.card__user{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card__name{
+	margin-bottom: 10px;
+}
+
+.p-card .p-card-body {
+	margin-bottom: 15px;
+}

@@ -4,7 +4,7 @@ import { Button } from 'primereact/button';
 
 
 
-const UserCard = (props) => {
+const UserCard = (props,) => {
 	return (
 
 		<Card>
@@ -21,7 +21,7 @@ const UserCard = (props) => {
 					<Button
 						label="Delete"
 						className="p-button-danger"
-
+						onClick={() => props.remove(props.card)}
 					/>
 				</div>
 			</div>
